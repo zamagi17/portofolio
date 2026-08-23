@@ -1,31 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b0f19" />
-      <stop offset="100%" stop-color="#030712" />
-    </linearGradient>
-    <linearGradient id="zGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="zGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#38bdf8" />
-      <stop offset="50%" stop-color="#60a5fa" />
-      <stop offset="100%" stop-color="#34d399" />
-    </linearGradient>
-    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#334155" stop-opacity="0.8" />
-      <stop offset="100%" stop-color="#1e293b" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#10b981" />
     </linearGradient>
   </defs>
 
-  <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#bgGrad)" stroke="url(#borderGrad)" stroke-width="2" />
-  <path d="M2 32h60M32 2v60" stroke="#1e293b" stroke-width="1" stroke-opacity="0.4" />
+  <rect width="64" height="64" rx="16" fill="#0b0f19" />
+  <rect x="1.5" y="1.5" width="61" height="61" rx="14.5" fill="none" stroke="#1e293b" stroke-width="2" />
 
   <path
-    d="M19 21h26l-18 22h20"
-    stroke="url(#zGrad)"
-    stroke-width="6.5"
-    stroke-linecap="round"
-    stroke-linejoin="round"
+    d="M15 15h34v8.5L26.5 40.5H49V49H15v-8.5L37.5 23.5H15V15z"
+    fill="url(#zGradient)"
   />
 
-  <circle cx="49" cy="15" r="3.5" fill="#10b981" />
-  <circle cx="49" cy="15" r="5.5" stroke="#10b981" stroke-width="1" stroke-opacity="0.5" />
+  <circle cx="49" cy="15" r="3" fill="#10b981" />
 </svg>

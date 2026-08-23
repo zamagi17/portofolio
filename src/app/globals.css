@@ -46,11 +46,16 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 @layer base {
   * {
     border-color: var(--border);
+    -webkit-tap-highlight-color: transparent;
+  }
+  html, body {
+    touch-action: manipulation;
   }
   body {
     background-color: var(--background);
@@ -58,6 +63,10 @@ html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+  }
+  button, a {
+    touch-action: manipulation;
+    cursor: pointer;
   }
 }
 

@@ -161,7 +161,7 @@ export function Navbar({ onOpenCommandPalette }: NavbarProps) {
                 <span className="text-xs font-mono text-muted-foreground font-semibold">
                   Language / Bahasa:
                 </span>
-                <LanguageToggle />
+                <LanguageToggle layoutIdPrefix="mobile" />
               </div>
 
               <button

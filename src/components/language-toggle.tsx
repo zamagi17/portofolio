@@ -5,7 +5,13 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/lib/language-context";
 import { Globe } from "lucide-react";
 
-export function LanguageToggle({ className = "" }: { className?: string }) {
+export function LanguageToggle({
+  className = "",
+  layoutIdPrefix = "desktop",
+}: {
+  className?: string;
+  layoutIdPrefix?: string;
+}) {
   const { language, setLanguage } = useLanguage();
   const [mounted, setMounted] = React.useState(false);
 
@@ -45,7 +51,7 @@ export function LanguageToggle({ className = "" }: { className?: string }) {
       >
         {language === "id" && (
           <motion.div
-            layoutId="active-lang-pill"
+            layoutId={`${layoutIdPrefix}-lang-pill`}
             className="absolute inset-0 rounded-lg bg-foreground shadow-xs z-0"
             transition={{ type: "spring", stiffness: 450, damping: 35 }}
           />
@@ -65,7 +71,7 @@ export function LanguageToggle({ className = "" }: { className?: string }) {
       >
         {language === "en" && (
           <motion.div
-            layoutId="active-lang-pill"
+            layoutId={`${layoutIdPrefix}-lang-pill`}
             className="absolute inset-0 rounded-lg bg-foreground shadow-xs z-0"
             transition={{ type: "spring", stiffness: 450, damping: 35 }}
           />
