@@ -66,7 +66,7 @@ export function Hero({ ready = true }: { ready?: boolean }) {
 
             {/* Name & Primary Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.1] mb-4">
-              <TypingText text="Muhammad Zaky" speed={80} delay={400} active={ready} />
+              <TypingText text="Muhammad Zaky" speed={38} delay={120} active={ready} />
             </h1>
 
             {/* Sub-headline / Role */}
