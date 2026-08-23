@@ -43,7 +43,7 @@ export function Hero() {
   };
 
   return (
-    <section className="relative pt-32 sm:pt-36 pb-20 editorial-grid border-b border-border/80 overflow-hidden">
+    <section id="hero" className="relative pt-32 sm:pt-36 pb-20 editorial-grid border-b border-border/80 overflow-hidden scroll-mt-20">
       {/* Background ambient lighting */}
       <div className="absolute top-12 left-1/3 -translate-x-1/2 w-[500px] h-[300px] bg-blue-500/[0.05] rounded-full blur-3xl pointer-events-none -z-10" />
       <div className="absolute top-1/3 right-1/4 w-[400px] h-[300px] bg-amber-500/[0.04] rounded-full blur-3xl pointer-events-none -z-10" />

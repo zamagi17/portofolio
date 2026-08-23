@@ -33,7 +33,7 @@ export function Navbar({ onOpenCommandPalette }: NavbarProps) {
   };
 
   const navItems = [
-    { name: t.nav.about, href: "#about" },
+    { name: t.nav.about, href: "#hero" },
     { name: t.nav.stack, href: "#stack" },
     { name: t.nav.experience, href: "#experience" },
     { name: t.nav.projects, href: "#projects" },
@@ -43,6 +43,12 @@ export function Navbar({ onOpenCommandPalette }: NavbarProps) {
   ];
 
   const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href === "#hero" || href === "#top" || href === "#") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.history.pushState(null, "", href);
+      return;
+    }
     if (href.startsWith("#")) {
       e.preventDefault();
       const targetId = href.substring(1);
@@ -52,6 +58,12 @@ export function Navbar({ onOpenCommandPalette }: NavbarProps) {
         window.history.pushState(null, "", href);
       }
     }
+  };
+
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.history.pushState(null, "", "/");
   };
 
   return (
@@ -65,16 +77,17 @@ export function Navbar({ onOpenCommandPalette }: NavbarProps) {
     >
       <div className="max-w-5xl mx-auto px-6 flex items-center justify-between">
         {/* Brand Logo */}
-        <Link
+        <a
           href="/"
-          className="flex items-center gap-2 font-bold text-sm tracking-tight text-foreground hover:opacity-80 transition-opacity"
+          onClick={handleLogoClick}
+          className="flex items-center gap-2 font-bold text-sm tracking-tight text-foreground hover:opacity-80 transition-opacity cursor-pointer"
         >
           <span className="h-2 w-2 rounded-full bg-emerald-500 inline-block animate-pulse" />
           <span className="font-mono font-bold tracking-tight">zaky.dev</span>
           <span className="hidden sm:inline-block text-[11px] font-mono text-muted-foreground px-2 py-0.5 rounded-md bg-muted/60 border border-border/60">
             v3.0
           </span>
-        </Link>
+        </a>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-1 border border-border/80 bg-card/75 backdrop-blur-md px-3 py-1 rounded-full shadow-xs">
