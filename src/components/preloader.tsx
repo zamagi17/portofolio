@@ -3,7 +3,7 @@
 import * as React from "react";
 import { motion } from "framer-motion";
 
-const PRELOADER_DURATION = 2400;
+const PRELOADER_DURATION = 800;
 
 export function Preloader({ onComplete }: { onComplete: () => void }) {
   const [exiting, setExiting] = React.useState(false);
@@ -15,7 +15,7 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
 
     const completeTimer = setTimeout(() => {
       onComplete();
-    }, PRELOADER_DURATION + 700);
+    }, PRELOADER_DURATION + 300);
 
     return () => {
       clearTimeout(exitTimer);

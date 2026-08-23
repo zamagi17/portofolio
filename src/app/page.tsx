@@ -40,13 +40,8 @@ export default function Home() {
       {/* Branded Preloader */}
       {isLoading && <Preloader onComplete={handlePreloaderComplete} />}
 
-      {/* Main Content with reveal animation */}
-      <motion.div
-        className="flex min-h-screen flex-col bg-background text-foreground selection:bg-foreground selection:text-background transition-colors duration-200"
-        initial={{ opacity: 0 }}
-        animate={isLoading ? { opacity: 0 } : { opacity: 1 }}
-        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      >
+      {/* Main Content */}
+      <div className="flex min-h-screen flex-col bg-background text-foreground selection:bg-foreground selection:text-background transition-colors duration-200">
         <ScrollProgress />
         <Navbar onOpenCommandPalette={() => setIsCommandPaletteOpen(true)} />
         <main className="flex-1">
@@ -66,7 +61,7 @@ export default function Home() {
           isOpen={isCommandPaletteOpen}
           onClose={() => setIsCommandPaletteOpen(false)}
         />
-      </motion.div>
+      </div>
     </>
   );
 }
