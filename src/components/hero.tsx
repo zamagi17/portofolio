@@ -19,11 +19,10 @@ import {
 import { TiltCard } from "@/components/ui/tilt-card";
 import { AnimatedCounter } from "@/components/ui/animated-counter";
 import { LiveStatus } from "@/components/live-status";
-import { TypingText } from "@/components/ui/typing-text";
 import { MagneticButton } from "@/components/ui/magnetic-button";
 import { useLanguage } from "@/lib/language-context";
 
-export function Hero({ ready = true }: { ready?: boolean }) {
+export function Hero() {
   const { t, language } = useLanguage();
   const [copied, setCopied] = React.useState(false);
   const email = "muhammadzaky00@gmail.com";
@@ -66,7 +65,7 @@ export function Hero({ ready = true }: { ready?: boolean }) {
 
             {/* Name & Primary Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.1] mb-4">
-              <TypingText text="Muhammad Zaky" speed={38} delay={120} active={ready} />
+              Muhammad Zaky
             </h1>
 
             {/* Sub-headline / Role */}

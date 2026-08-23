@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import { motion } from "framer-motion";
 import { Navbar } from "@/components/navbar";
 import { Hero } from "@/components/hero";
 import { About } from "@/components/about";
@@ -13,12 +12,10 @@ import { Certificates } from "@/components/certificates";
 import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
 import { CommandPalette } from "@/components/command-palette";
-import { Preloader } from "@/components/preloader";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
 
 export default function Home() {
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = React.useState(false);
-  const [isLoading, setIsLoading] = React.useState(true);
 
   React.useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -31,37 +28,27 @@ export default function Home() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
-  const handlePreloaderComplete = React.useCallback(() => {
-    setIsLoading(false);
-  }, []);
-
   return (
-    <>
-      {/* Branded Preloader */}
-      {isLoading && <Preloader onComplete={handlePreloaderComplete} />}
+    <div className="flex min-h-screen flex-col bg-background text-foreground selection:bg-foreground selection:text-background transition-colors duration-200">
+      <ScrollProgress />
+      <Navbar onOpenCommandPalette={() => setIsCommandPaletteOpen(true)} />
+      <main className="flex-1">
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Experience />
+        <Education />
+        <Certificates />
+        <Contact />
+      </main>
+      <Footer />
 
-      {/* Main Content */}
-      <div className="flex min-h-screen flex-col bg-background text-foreground selection:bg-foreground selection:text-background transition-colors duration-200">
-        <ScrollProgress />
-        <Navbar onOpenCommandPalette={() => setIsCommandPaletteOpen(true)} />
-        <main className="flex-1">
-          <Hero ready={!isLoading} />
-          <About />
-          <Skills />
-          <Projects />
-          <Experience />
-          <Education />
-          <Certificates />
-          <Contact />
-        </main>
-        <Footer />
-
-        {/* Global Command Palette */}
-        <CommandPalette
-          isOpen={isCommandPaletteOpen}
-          onClose={() => setIsCommandPaletteOpen(false)}
-        />
-      </div>
-    </>
+      {/* Global Command Palette */}
+      <CommandPalette
+        isOpen={isCommandPaletteOpen}
+        onClose={() => setIsCommandPaletteOpen(false)}
+      />
+    </div>
   );
 }
