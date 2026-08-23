@@ -52,40 +52,60 @@ export function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
           {/* Left Column: Headline, Telemetry & Value Prop */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-7 flex flex-col items-start"
-          >
+          <div className="lg:col-span-7 flex flex-col items-start">
             {/* Live Telemetry Pill */}
-            <div className="mb-6">
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="mb-6"
+            >
               <LiveStatus />
-            </div>
+            </motion.div>
 
             {/* Name & Primary Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.1] mb-4">
+            <motion.h1
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.1] mb-4"
+            >
               Muhammad Zaky
-            </h1>
+            </motion.h1>
 
             {/* Sub-headline / Role */}
-            <div className="flex items-center gap-2 mb-6">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+              className="flex items-center gap-2 mb-6"
+            >
               <span className="font-mono text-xs sm:text-sm font-semibold text-foreground px-3 py-1 rounded-lg bg-muted/80 border border-border">
                 {t.hero.role}
               </span>
-            </div>
+            </motion.div>
 
             {/* Bio & Practical Engineering Focus */}
-            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-8 max-w-xl">
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, delay: 0.22, ease: [0.16, 1, 0.3, 1] }}
+              className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-8 max-w-xl"
+            >
               {t.hero.bio}
-            </p>
+            </motion.p>
 
             {/* Action CTAs */}
-            <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="flex flex-wrap items-center gap-3 w-full sm:w-auto"
+            >
               <a
                 href="#projects"
                 onClick={scrollToProjects}
-                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-foreground text-background text-xs sm:text-sm font-semibold hover:opacity-90 transition-all shadow-md hover:shadow-lg cursor-pointer"
+                className="shimmer-btn inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-foreground text-background text-xs sm:text-sm font-semibold hover:opacity-90 transition-all shadow-md hover:shadow-lg cursor-pointer"
               >
                 <span>{t.hero.exploreProjects}</span>
                 <ArrowRight size={15} />
@@ -168,14 +188,14 @@ export function Hero() {
                   </a>
                 </MagneticButton>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
 
           {/* Right Column: 3D Interactive Developer Card */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.94 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5 flex justify-center lg:justify-end"
           >
             <div className="relative max-w-[320px] w-full">
@@ -220,14 +240,14 @@ export function Hero() {
                 </div>
               </TiltCard>
 
-              {/* Floating tech badge 1 */}
-              <div className="absolute -top-3 -left-3 px-3 py-1.5 rounded-xl bg-card border border-border text-foreground text-xs font-mono font-bold shadow-xl flex items-center gap-1.5">
+              {/* Floating tech badge 1 with levitation */}
+              <div className="animate-float-1 absolute -top-3 -left-3 px-3 py-1.5 rounded-xl bg-card border border-border text-foreground text-xs font-mono font-bold shadow-xl flex items-center gap-1.5">
                 <Code2 size={14} className="text-blue-500" />
                 <span>Java 17 • Spring Boot</span>
               </div>
 
-              {/* Floating tech badge 2 */}
-              <div className="absolute -bottom-3 -right-3 px-3 py-1.5 rounded-xl bg-card border border-border text-foreground text-xs font-mono font-bold shadow-xl flex items-center gap-1.5">
+              {/* Floating tech badge 2 with levitation */}
+              <div className="animate-float-2 absolute -bottom-3 -right-3 px-3 py-1.5 rounded-xl bg-card border border-border text-foreground text-xs font-mono font-bold shadow-xl flex items-center gap-1.5">
                 <Cpu size={14} className="text-emerald-500" />
                 <span>Core Banking System</span>
               </div>
